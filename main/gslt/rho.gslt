@@ -1,7 +1,6 @@
 ; RHO calculus 
 (theory
-  (shapes
-    (P R N))
+  (shapes (P R N))
   (terms
     (0 P)
     (| P P P)
@@ -11,36 +10,28 @@
     (* N P))
   (interactions |)
   (rewrites
-    (comm
-      ((x N) (K (-> N P)) (Q P) R)
+    (comm ((x N) (K (-> N P)) (Q P) R)
       (| (? x K) (! x Q))
       (eval K (@ Q)))
-    (par1
-      ((rho R) (Q P) R)
+    (par1 ((rho R) (Q P) R)
       (| (src rho) Q)
       (| (tgt rho) Q))
-    (par2
-      ((rho1 R) (rho2 R) R)
+    (par2 ((rho1 R) (rho2 R) R)
       (| (src rho1) (src rho2))
       (| (tgt rho1) (tgt rho2))))
   (equations
-    (commutativity
-      ((Q1 P) (Q2 P))
+    (commutativity ((Q1 P) (Q2 P))
       (| Q1 Q2)
       (| Q2 Q1))
-    (associativity
-      ((Q1 P) (Q2 P) (Q3 P))
+    (associativity ((Q1 P) (Q2 P) (Q3 P))
       (| (| Q1 Q2) Q3)
       (| Q1 (| Q2 Q3)))
-    (unit
-      ((Q P))
+    (unit ((Q P))
       (| 0 Q)
       Q)
-    (run
-      ((Q P))
+    (run ((Q P))
       (* (@ Q))
       Q)
-    (quote
-      ((n N))
+    (quote ((n N))
       (@ (* n))
       n)))

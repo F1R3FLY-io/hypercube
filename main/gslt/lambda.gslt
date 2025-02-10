@@ -1,0 +1,15 @@
+; Lambda calculus, reduction only in leftmost head
+(theory
+  (shapes (P R))
+  (terms
+    (lam (-> P P) P)
+    (app P P P))
+  (interactions app)
+  (rewrites
+    (beta ((K (-> P P)) (Q P) R)
+      (app lam(K) Q)
+      (eval K Q))
+    (head ((rho R) (Q P) R)
+      ((src rho) Q)
+      ((tgt rho) Q)))
+  (equations))
